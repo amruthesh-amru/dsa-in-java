@@ -36,7 +36,7 @@ public class maximumSubarray
 //    }
 
 
-    //optimal solution without follow up usind kadane algorithm
+    //optimal solution without follow up using kadane algorithm
 //    public static void main(String[] args) {
 //
 //        int[] arr = {-2,-3,4,-1,-2,1,5,-3};
@@ -61,7 +61,7 @@ public class maximumSubarray
 //        System.out.println(maxi);
 //}
 
-//optimal solution with followup to print that  sybarray which contains maximum sum using kadanes algorithm
+//optimal solution with followup to print that  subarray which contains maximum sum using kadanes algorithm
 //    class Solution {
 //        public int maxSubArray(int[] nums) {
 //
@@ -89,4 +89,38 @@ public class maximumSubarray
 //            return maxi;
 //        }
 //    }
+
+
+//second type with followup to print those numbers which contains max subarray - YT love babbar
+
+//    class HelloWorld {
+//        public static void main(String[] args) {
+//            int[] nums = {5,4,-1,7,8};
+//            int sum =0;
+//            int startIndex=0,endIndex=0;
+//            int maxi = Integer.MIN_VALUE;
+//            int n=nums.length;
+//
+//            for(int i=0;i<n;i++){
+//                sum+=nums[i];
+//                if(sum>maxi){
+//                    maxi=sum;
+//                    endIndex=i;
+//                }
+//                if(sum<0){
+//                    sum = 0;
+//                    startIndex=i+1;
+//                }
+//
+//
+//            }
+//            System.out.println(maxi);
+//            for(int i=startIndex;i<=endIndex;i++){
+//                System.out.println(nums[i]);
+//            }
+//        }
+//    }
+
+
+
 }
