@@ -1,12 +1,18 @@
 
 public class linkedList {
         Node head;
+        private int size;
+
+        linkedList(){
+            this.size=0;
+        }
     class Node{
         int data;
         Node next;
         Node(int data){
             this.data = data;
             this.next = null ;
+            size++;
         }
     }
 
@@ -38,6 +44,7 @@ public class linkedList {
                 head = newNode;
                 return;
             }
+
             Node currNode = head;
             while(currNode.next != null){
                 currNode = currNode.next;
@@ -49,6 +56,7 @@ public class linkedList {
                 System.out.println("list is empty");
                 return;
             }
+            size--;
         //brute
 //            Node currNode = head;
 //            head = currNode.next;
@@ -60,6 +68,7 @@ public class linkedList {
                 System.out.println("list is empty");
                 return;
             }
+            size--;
             if(head.next==null){
                 head=null;
                 return;
@@ -72,12 +81,32 @@ public class linkedList {
             }
             secondlastNode.next=null;
         }
+        public int getSize(){
+            return size;
+        }
+        public void reverseList(){
+
+            Node prev = null;
+            Node current = head;
+            while(current != null){
+                Node tempNext  = current.next;
+                current.next = prev;
+                prev = current;
+                current = tempNext;
+            }
+            System.out.println("new head"+ prev.data);
+        }
     public static void main(String[] args) {
         linkedList list = new linkedList();
         list.addFirst(2);
         list.addFirst(1);
         list.addFirst(6);
-        list.deleteLast();
+        list.addFirst(55);
+        System.out.println();
+        System.out.println(list.getSize());
+        list.printList();
+        list.reverseList();
+        System.out.println();
         list.printList();
     }
 }
