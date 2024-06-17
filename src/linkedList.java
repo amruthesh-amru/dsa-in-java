@@ -96,17 +96,41 @@ public class linkedList {
             }
             System.out.println("new head"+ prev.data);
         }
+        public void findMiddleNode(){
+            //optimal tortoise appraoch
+            Node slow = head;
+            Node fast = head;
+            while(fast!=null && fast.next!=null){
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            System.out.println();
+            System.out.println(slow.data);
+
+            //brute approach
+            int length = 0;
+            Node currNode = head;
+            while(currNode != null){
+                currNode = currNode.next;
+                length++;
+            }
+            currNode = head;
+            int i=1;
+            while(i != length/2 +1){
+                currNode = currNode.next;
+                i++;
+            }
+            System.out.println(currNode.data);
+        }
     public static void main(String[] args) {
         linkedList list = new linkedList();
         list.addFirst(2);
         list.addFirst(1);
         list.addFirst(6);
         list.addFirst(55);
-        System.out.println();
-        System.out.println(list.getSize());
-        list.printList();
-        list.reverseList();
-        System.out.println();
-        list.printList();
+        list.addFirst(5);
+        list.addFirst(9);
+       list.printList();
+       list.findMiddleNode();
     }
 }
