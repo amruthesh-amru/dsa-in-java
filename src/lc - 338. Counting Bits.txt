@@ -1,0 +1,29 @@
+class Solution {
+    public int[] countBits(int n) {
+        //Dp optimized solution 
+        // why the formula  res[i] = res[i/2] + (i % 2);
+        // res[i/2] gives the binary form except the last bit 
+        // how do you decide whether last bit is 1 or 0 ?
+        // we get to know that by dividing it by 2 if ->  remainder - 0 then 0 else 1
+        int[] res = new int[n+1];
+        for(int i=1;i<=n;i++){
+            res[i] = res[i/2] + (i % 2);
+        }
+        return res;
+
+        //Brute Force
+        // int[] res = new int[n+1];
+        // if (n==0) return new int[] {0};
+        // for(int i=0;i<n+1;i++){
+        //     String binary = Integer.toBinaryString(i);
+        //     int cnt = 0;
+        //     for(int j=0;j<binary.length();j++){
+        //         if(binary.charAt(j) == '1'){
+        //             cnt++;
+        //         }
+        //     }
+        //     res[i] = cnt;
+        // }
+        // return res;
+    }
+}
